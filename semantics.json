@@ -1,0 +1,210 @@
+[
+  {
+    "name": "intro",
+    "type": "text",
+    "widget": "html",
+    "label": "Jeopardy game title",
+    "importance": "high",
+    "default": "Jeopardy game title.",
+    "description": "Will be displayed above the summary task.",
+    "enterMode": "div",
+    "tags": [
+      "strong",
+      "em"
+    ],
+    "common": false
+  },
+  {
+    "name": "multiplicator",
+    "type": "number",
+    "label": "Question multiplicator",
+    "description": "The question points are calculated by the question index and this multiplicator.",
+    "min": 100,
+    "max": 1000,
+    "step": 100,
+    "default": 100
+  },
+  {
+    "name": "caseSensitive",
+    "importance": "low",
+    "type": "boolean",
+    "default": true,
+    "label": "Case sensitive",
+    "description": "Makes sure the user input has to be exactly the same as the answer."
+  },
+  {
+    "name": "topics",
+    "importance": "high",
+    "type": "list",
+    "widgets": [
+      {
+        "name": "VerticalTabs",
+        "label": "Default"
+      }
+    ],
+    "label": "Category",
+    "entity": "category",
+    "max": 6,
+    "min": 1,
+    "field": {
+      "name": "category",
+      "type": "group",
+      "label": "Category",
+      "importance": "high",
+      "isSubContent": true,
+      "fields": [
+        {
+          "name": "topic",
+          "label": "Category text",
+          "importance": "high",
+          "type": "text",
+          "optional": false
+        },
+        {
+          "name": "clues",
+          "type": "list",
+          "widgets": [
+            {
+              "name": "VerticalTabs",
+              "label": "Default"
+            }
+          ],
+          "label": "List of questions for the category.",
+          "entity": "question",
+          "importance": "medium",
+          "isSubContent": true,
+          "min": 2,
+          
+          "field": {
+            "name": "question",
+            "type": "group",
+            "label": "Question",
+            "importance": "high",
+            "fields": [
+              {
+                "name": "response",
+                "type": "text",
+                "label": "Response",
+                "importance": "high",
+                "optional": false,
+                "placeholder": "Oslo",
+                "description": "This is traditionally phrased as a statement (ex: The third planet from the sun)"
+              },
+              {
+                "name": "question",
+                "type": "text",
+                "widget": "html",
+                "label": "Question",
+                "importance": "high",
+                "placeholder": "What is the of *Norway*?",
+                "optional": false,
+                "description": "This is traditionally phrased as a question (ex: What is *Earth*?)",
+                "important": {
+                  "description": "<ul><li>Expected answer are added with an asterisk (*) in front and behind the correct word/phrase.</li><li>Alternative answers are separated with a forward slash (/).</li><li>You may add a textual tip, using a colon (:) in front of the tip.</li></ul>",
+                  "example": "H5P content may be edited using a *browser/web-browser:Something you use every day*."
+                },
+                "enterMode": "div",
+                "tags": [
+                  "strong",
+                  "em",
+                  "del",
+                  "u"
+                ]
+                
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "UI",
+    "type": "group",
+    "label": "User interface translations",
+    "importance": "low",
+    "common": true,
+    "fields": [  
+      {
+        "label": "Text for the \"Choose\" button",
+        "importance": "low",
+        "name": "choose",
+        "type": "text",
+        "default": "Choose",
+        "common": true,
+        "optional": true
+      },
+      {
+        "label": "Text for \"Choose\" message",
+        "importance": "low",
+        "name": "chooseMessage",
+        "type": "text",
+        "default": "Choose @topic for @value",
+        "common": true,
+        "optional": true
+      },      
+      {
+        "label": "Text for \"Check\" button",
+        "importance": "low",
+        "name": "check",
+        "type": "text",
+        "default": "Check",
+        "common": true,
+        "optional": true
+      },  
+      {
+        "label": "Text for \"Next\" button",
+        "importance": "low",
+        "name": "next",
+        "type": "text",
+        "default": "Next",
+        "common": true,
+        "optional": true
+      },  
+      {
+        "name": "clueLabel",
+        "type": "text",
+        "label": "Text displayed before the question on clue page.",
+        "importance": "low",
+        "default": "@topic for @value",
+        "description": "Use @topic and @value to replace choosed topic and the value of points",
+        "common": true
+      },
+      {
+        "label": "Text for \"Answered correctly\" message",
+        "importance": "low",
+        "name": "answeredCorrectly",
+        "type": "text",
+        "default": "Answered correctly",
+        "common": true,
+        "optional": true
+      },
+      {
+        "label": "Text for \"Answered incorrectly\" message",
+        "importance": "low",
+        "name": "answeredIncorrectly",
+        "type": "text",
+        "default": "Answered incorrectly",
+        "common": true,
+        "optional": true
+      },
+      {
+        "name": "scoreBarLabel",
+        "type": "text",
+        "label": "Textual representation of the score bar for those using a readspeaker",
+        "default": "You got :num out of :total points",
+        "importance": "low",
+        "common": true
+      },
+      {
+        "name": "pointsLabel",
+        "type": "text",
+        "label": "Text displayed before points achieved.",
+        "importance": "low",
+        "default": "Points:",
+        "description": "Will be displayed above the statements. Example: 'Points: 2/5'",
+        "common": true
+      }
+    ]
+  }        
+]
