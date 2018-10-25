@@ -17,9 +17,9 @@ H5P.Jeopardy = (function ($, JoubelUI) {
     // Set default behavior.
     self.options = $.extend({
       intro: "Jeopardy",
-      choose: "Choose",
-      check: "Check",
-      next: "Next",
+      chooseBtnLabel: "Choose",
+      checkBtnLabel: "Check",
+      nextBtnLabel: "Next",
       answeredCorrectly: "Answered correctly",
       answeredIncorrectly: "Answered incorrectly"
     }, options);
@@ -71,7 +71,7 @@ H5P.Jeopardy = (function ($, JoubelUI) {
     var self = this;
     var maxScore = self.maxPoints;
     var score = self.userPoints;
-    var scoreText = self.options.UI.scoreBarLabel.replace(':num', score).replace(':total', maxScore);
+    var scoreText = self.options.scoreBarLabel.replace(':num', score).replace(':total', maxScore);
     $('#h5p-jeopardy-result').html(scoreText);
     $('#h5p-jeopardy-result').attr('tabindex', 0);
     $('#h5p-jeopardy-result').attr('aria-label', scoreText);
@@ -84,7 +84,7 @@ H5P.Jeopardy = (function ($, JoubelUI) {
       'class': 'h5p-jeopardy-result-page grid grid-pad'
     });
     $inner = $('<div class="h5p-jeopardy-result-container"></div>');
-    $result = $('<div id="h5p-jeopardy-result" class="h5p-jeopardy-result">' + self.options.UI.scoreBarLabel + '</div>');
+    $result = $('<div id="h5p-jeopardy-result" class="h5p-jeopardy-result">' + self.options.scoreBarLabel + '</div>');
     $result.appendTo($inner);
     $inner.appendTo(self.$resultPage);
     return self.$resultPage;
@@ -106,7 +106,7 @@ H5P.Jeopardy = (function ($, JoubelUI) {
     JoubelUI.createButton({
       'class': 'h5p-jeopardy-check',
       'id': 'h5p-jeopardy-check',
-      'html': self.options.UI.check,
+      'html': self.options.checkBtnLabel,
     }).click(function () {
       var isCorrect = self.checkClue($(this), $('#h5p-jeopardy-user-answer').val());
       var containerId = $('#h5p-jeopardy-check').attr("data-id");
@@ -115,13 +115,13 @@ H5P.Jeopardy = (function ($, JoubelUI) {
         self.userPoints = self.userPoints + parseInt($('#h5p-jeopardy-check').attr("data-value"));
         $('#' + containerId + ' .jeopardy-inner').addClass('h5p-correct');
         $('.h5p-input-wrapper').addClass('h5p-correct');
-        $('#h5p-jeopardy-next').attr('aria-label', self.options.UI.answeredCorrectly + "   " + self.options.UI.next);
+        $('#h5p-jeopardy-next').attr('aria-label', self.options.answeredCorrectly + "   " + self.options.nextBtnLabel);
         self.updateScore();
       }
       else {
         $('#' + containerId + ' .jeopardy-inner').addClass('h5p-wrong');
         $('.h5p-input-wrapper').addClass('h5p-wrong');
-        $('#h5p-jeopardy-next').attr('aria-label', self.options.UI.answeredIncorrectly + "   " + self.options.UI.next);
+        $('#h5p-jeopardy-next').attr('aria-label', self.options.answeredIncorrectly + "   " + self.options.nextBtnLabel);
       }
       $('#h5p-jeopardy-user-answer').attr('disabled', true);
       self.userCards++;
@@ -133,7 +133,7 @@ H5P.Jeopardy = (function ($, JoubelUI) {
     JoubelUI.createButton({
       'class': 'h5p-jeopardy-next',
       'id': 'h5p-jeopardy-next',
-      'html': self.options.UI.next,
+      'html': self.options.nextBtnLabel,
     }).click(function () {
         self.nextClue();
     }).appendTo($inner).hide();
@@ -205,7 +205,7 @@ H5P.Jeopardy = (function ($, JoubelUI) {
           $value.appendTo($inner);
           $value = $('<div>', {
             'class': 'jeopardy-clue-data-mobile',
-            'html': self.options.UI.clueLabel.replace('@topic', topicName).replace('@value', value)
+            'html': self.options.clueLabel.replace('@topic', topicName).replace('@value', value)
           });
 //          $value = $('<div class="jeopardy-clue-data">' +  + '</div>');
           $value.appendTo($inner);
@@ -213,10 +213,10 @@ H5P.Jeopardy = (function ($, JoubelUI) {
           //var clue = $("#" + id);
           JoubelUI.createButton({
             'class': 'h5p-jeopardy-choose',
-            'html': self.options.UI.choose,
+            'html': self.options.chooseBtnLabel,
             'data-topic' : self.encrypt(self.options.topics[topic].topic),
             'data-value' : self.encrypt(value.toString()),
-            'aria-label' : self.options.UI.chooseMessage.replace('@topic', topicName).replace('@value', value),
+            'aria-label' : self.options.chooseMessage.replace('@topic', topicName).replace('@value', value),
             'data-id' : id,
             'data-question' : self.encrypt(self.options.topics[topic].clues[i].question),
             'data-response' : self.encrypt(self.options.topics[topic].clues[i].response)
@@ -248,7 +248,7 @@ H5P.Jeopardy = (function ($, JoubelUI) {
     var value = self.decrypt($clue.attr("data-value")).toString(CryptoJS.enc.Utf8);
     var question = self.decrypt($clue.attr("data-question")).toString(CryptoJS.enc.Utf8);
     var response = self.decrypt($clue.attr("data-response")).toString(CryptoJS.enc.Utf8);
-    var clueLabel = self.options.UI.clueLabel.replace('@topic', topic).replace('@value', value);
+    var clueLabel = self.options.clueLabel.replace('@topic', topic).replace('@value', value);
     $('#h5p-jeopardy-user-answer').val('');
     $('.h5p-input-wrapper').removeClass('h5p-correct');
     $('.h5p-input-wrapper').removeClass('h5p-wrong');

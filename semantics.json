@@ -25,14 +25,6 @@
     "default": 100
   },
   {
-    "name": "caseSensitive",
-    "importance": "low",
-    "type": "boolean",
-    "default": true,
-    "label": "Case sensitive",
-    "description": "Makes sure the user input has to be exactly the same as the answer."
-  },
-  {
     "name": "topics",
     "importance": "high",
     "type": "list",
@@ -119,92 +111,117 @@
     }
   },
   {
-    "name": "UI",
+    "name": "behaviour",
     "type": "group",
-    "label": "User interface translations",
+    "label": "Behavioural settings",
     "importance": "low",
-    "common": true,
-    "fields": [  
+    "description": "These options will let you control how the task behaves.",
+    "optional": true,
+    "fields": [
       {
-        "label": "Text for the \"Choose\" button",
+        "label": "Enable \"Retry\"",
         "importance": "low",
-        "name": "choose",
-        "type": "text",
-        "default": "Choose",
-        "common": true,
+        "name": "enableRetry",
+        "type": "boolean",
+        "default": true,
         "optional": true
       },
       {
-        "label": "Text for \"Choose\" message",
+        "label": "Enable \"Show solutions\" button",
         "importance": "low",
-        "name": "chooseMessage",
-        "type": "text",
-        "default": "Choose @topic for @value",
-        "common": true,
-        "optional": true
-      },      
-      {
-        "label": "Text for \"Check\" button",
-        "importance": "low",
-        "name": "check",
-        "type": "text",
-        "default": "Check",
-        "common": true,
-        "optional": true
-      },  
-      {
-        "label": "Text for \"Next\" button",
-        "importance": "low",
-        "name": "next",
-        "type": "text",
-        "default": "Next",
-        "common": true,
-        "optional": true
-      },  
-      {
-        "name": "clueLabel",
-        "type": "text",
-        "label": "Text displayed before the question on clue page.",
-        "importance": "low",
-        "default": "@topic for @value",
-        "description": "Use @topic and @value to replace choosed topic and the value of points",
-        "common": true
-      },
-      {
-        "label": "Text for \"Answered correctly\" message",
-        "importance": "low",
-        "name": "answeredCorrectly",
-        "type": "text",
-        "default": "Answered correctly",
-        "common": true,
+        "name": "enableSolutionsButton",
+        "type": "boolean",
+        "default": true,
         "optional": true
       },
       {
-        "label": "Text for \"Answered incorrectly\" message",
+        "name": "caseSensitive",
         "importance": "low",
-        "name": "answeredIncorrectly",
-        "type": "text",
-        "default": "Answered incorrectly",
-        "common": true,
-        "optional": true
-      },
-      {
-        "name": "scoreBarLabel",
-        "type": "text",
-        "label": "Textual representation of the score bar for those using a readspeaker",
-        "default": "You got :num out of :total points",
-        "importance": "low",
-        "common": true
-      },
-      {
-        "name": "pointsLabel",
-        "type": "text",
-        "label": "Text displayed before points achieved.",
-        "importance": "low",
-        "default": "Points:",
-        "description": "Will be displayed above the statements. Example: 'Points: 2/5'",
-        "common": true
+        "type": "boolean",
+        "default": false,
+        "label": "Case sensitive",
+        "description": "Makes sure the user input has to be exactly the same as the answer."
       }
     ]
-  }        
+  },  
+  {
+    "label": "Text for the \"Choose\" button",
+    "importance": "low",
+    "name": "chooseBtnLabel",
+    "type": "text",
+    "default": "Choose",
+    "common": true,
+    "optional": true
+  },
+  {
+    "label": "Text for \"Choose\" message",
+    "importance": "low",
+    "name": "chooseMessage",
+    "type": "text",
+    "default": "Choose @topic for @value",
+    "common": true,
+    "optional": true
+  },      
+  {
+    "label": "Text for \"Check\" button",
+    "importance": "low",
+    "name": "checkBtnLabel",
+    "type": "text",
+    "default": "Check",
+    "common": true,
+    "optional": true
+  },  
+  {
+    "label": "Text for \"Next\" button",
+    "importance": "low",
+    "name": "nextBtnLabel",
+    "type": "text",
+    "default": "Next",
+    "common": true,
+    "optional": true
+  },  
+  {
+    "name": "clueLabel",
+    "type": "text",
+    "label": "Text displayed before the question on clue page.",
+    "importance": "low",
+    "default": "@topic for @value",
+    "description": "Use @topic and @value to replace choosed topic and the value of points",
+    "common": true
+  },
+  {
+    "label": "Text for \"Answered correctly\" message",
+    "importance": "low",
+    "name": "answeredCorrectly",
+    "type": "text",
+    "default": "Answered correctly",
+    "common": true,
+    "optional": true
+  },
+  {
+    "label": "Text for \"Answered incorrectly\" message",
+    "importance": "low",
+    "name": "answeredIncorrectly",
+    "type": "text",
+    "default": "Answered incorrectly",
+    "common": true,
+    "optional": true
+  },
+  {
+    "name": "scoreBarLabel",
+    "type": "text",
+    "label": "Textual representation of the score bar for those using a readspeaker",
+    "default": "You got :num out of :total points",
+    "importance": "low",
+    "common": true
+  },
+  {
+    "name": "pointsLabel",
+    "type": "text",
+    "label": "Text displayed before points achieved.",
+    "importance": "low",
+    "default": "Points:",
+    "description": "Will be displayed above the statements. Example: 'Points: 2/5'",
+    "common": true
+  }
 ]
