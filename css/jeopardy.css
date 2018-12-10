@@ -2,16 +2,9 @@
   padding: 2%;
   width: 100%;
 }
-#intro-page .h5p-jeopardy-title {
-  width: 80%;
-  text-align: left;
-  float: left;
-}
-#intro-page #h5p-jeopardy-score {
-  width: 16%;
-  text-align: right;
-  float: left;
-  /*padding-right: 2%;*/
+
+#h5p-jeopardy-button-retry {
+  margin-top: 1em;
 }
 .h5p-jeopardy-main-content {
   font-family: 'Open Sans', sans-serif;
@@ -150,6 +143,10 @@
   text-decoration: none;
   content: "\f00d";
   color: #b71c1c;
+}
+
+#h5p-jeopardy-feedback-container {
+  text-align: center;
 }
 .jeopardy-clue-data-mobile {
   display: none;

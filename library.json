@@ -3,7 +3,7 @@
   "description": "Create a jeopardy game where the user has to guess the question.",
   "majorVersion": 1,
   "minorVersion": 1,
-  "patchVersion": 0,
+  "patchVersion": 3,
   "runnable": 1,
   "embedTypes": [
     "iframe"
@@ -25,9 +25,6 @@
   ],
   "preloadedJs": [
     {
-      "path": "js/aes.js"
-    },
-    {
       "path": "js/jeopardy.js"
     }
   ],
@@ -36,6 +33,11 @@
       "machineName": "FontAwesome",
       "majorVersion": 4,
       "minorVersion": 5
+    },
+    {
+      "machineName": "H5P.Question",
+      "majorVersion": 1,
+      "minorVersion": 3
     },
     {
       "machineName": "H5P.JoubelUI",
